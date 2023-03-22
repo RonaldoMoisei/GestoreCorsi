@@ -3,13 +3,13 @@ package it.polito.tdp.corsi.model;
 import java.util.Objects;
 
 public class Corso {
-	private int codins;
+	private String codins;
 	private int crediti;
 	private String nome;
 	private int pd;
 	
 	
-	public Corso(int codins, int crediti, String nome, int pd) {
+	public Corso(String codins, int crediti, String nome, int pd) {
 		super();
 		this.codins = codins;
 		this.crediti = crediti;
@@ -18,12 +18,12 @@ public class Corso {
 	}
 
 
-	public int getCodins() {
+	public String getCodins() {
 		return codins;
 	}
 
 
-	public void setCodins(int codins) {
+	public void setCodins(String codins) {
 		this.codins = codins;
 	}
 
