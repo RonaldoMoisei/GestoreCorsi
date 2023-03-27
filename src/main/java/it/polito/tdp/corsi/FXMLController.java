@@ -7,6 +7,7 @@ package it.polito.tdp.corsi;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.*;
 import java.util.ResourceBundle;
 
 import it.polito.tdp.corsi.model.Corso;
@@ -77,6 +78,24 @@ public class FXMLController {
 
     @FXML
     void numeroStudenti(ActionEvent event) {
+    	String input = txtPeriodo.getText();
+    	int inputNUM = 0;
+    	
+    	try {
+    		inputNUM = Integer.parseInt(input);
+    	} catch (NumberFormatException e) {
+    		txtRisultato.setText("Inserted Value is not an Integer value");
+    		return;
+    	}
+    	
+    	Map <Corso, Integer> RISULTATO = new HashMap<Corso,Integer>();
+    	
+    	RISULTATO = this.model.getCorsiIscritti(inputNUM);
+    	this.txtRisultato.clear();
+    	
+    	for (Corso c : RISULTATO.keySet()) {
+    		txtRisultato.appendText(c + " " + RISULTATO.get(c) + "\n");
+    	}
     	
     }
 
