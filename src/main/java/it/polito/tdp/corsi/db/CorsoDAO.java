@@ -69,8 +69,8 @@ public class CorsoDAO {
 		}catch(SQLException e) {
 			System.out.println("Error in corso DAO");
 			e.printStackTrace();
-			return null;
 			
 		}
+		return null;
 	}
 }
