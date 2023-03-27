@@ -11,7 +11,9 @@ import java.util.*;
 import java.util.ResourceBundle;
 
 import it.polito.tdp.corsi.model.Corso;
+import it.polito.tdp.corsi.model.Divisione;
 import it.polito.tdp.corsi.model.Model;
+import it.polito.tdp.corsi.model.Studente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -101,11 +103,38 @@ public class FXMLController {
 
     @FXML
     void stampaDivisione(ActionEvent event) {
+    	
+    	String codins = this.txtCorso.getText();
+    	if(codins.isEmpty()) {
+    		txtRisultato.setText("Inserire codiece valido");
+    		return;
+    	}
+    	List<Divisione> risultato = new ArrayList <Divisione> ();
+    	risultato = this.model.getDivisioneStudentiCorso(codins);
+    	txtRisultato.clear();
+    	
+    	for(Divisione d : risultato) {
+    		txtRisultato.appendText(d + "\n");
+    	}
+    	
 
     }
 
     @FXML
     void stampaStudenti(ActionEvent event) {
+    	
+    	String codins = this.txtCorso.getText();
+    	if(codins.isEmpty()) {
+    		txtRisultato.setText("Inserire codiece valido");
+    		return;
+    	}
+    	List <Studente> risultato = new ArrayList<Studente>();
+    	risultato = this.model.getIscrittiCorso(codins);
+    	
+    	for (Studente s : risultato) {
+    		txtRisultato.appendText(s + "\n");
+    		
+    	}
 
     }
 

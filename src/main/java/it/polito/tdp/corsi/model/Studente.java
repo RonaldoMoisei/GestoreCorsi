@@ -13,6 +13,22 @@ public class Studente {
 		this.nome = nome;
 		CDS = cDS;
 	}
+	public Integer getMatricola() {
+		return matricola;
+	}
+	public String getCognome() {
+		return cognome;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public String getCDS() {
+		return CDS;
+	}
+	@Override
+	public String toString() {
+		return "Studente [matricola=" + matricola + ", cognome=" + cognome + ", nome=" + nome + ", CDS=" + CDS + "]";
+	}
 	
 	
 
